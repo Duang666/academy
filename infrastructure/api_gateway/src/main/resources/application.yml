@@ -1,0 +1,79 @@
+# 服务端口
+server:
+  port: 8222
+
+  # 服务名
+spring:
+  application:
+    name: service-gateway
+  # nacos服务地址
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+
+  #使用服务发现路由
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+
+  #设置路由id
+      routes:
+        - id: service-acl
+  #设置路由的uri   lb://nacos注册服务名称
+          uri: lb://service-acl
+  #设置路由断言,代理servicerId为auth-service的/auth/路径
+          predicates:
+            - Path=/*/acl/** # 路径匹配
+
+        #配置service-edu服务
+        - id: service-edu
+          uri: lb://service-edu
+          predicates:
+            - Path=/eduservice/** # 路径匹配
+
+        #配置service-oss服务
+        - id: service-oss
+          uri: lb://service-oss
+          predicates:
+            - Path=/eduoss/** # 路径匹配
+
+        #配置service-eduvod服务
+        - id: service-eduvod
+          uri: lb://service-eduvod
+          predicates:
+            - Path=/eduvod/** # 路径匹配
+
+        #配置service-educms服务
+        - id: service-educms
+          uri: lb://service-educms
+          predicates:
+            - Path=/educms/** # 路径匹配
+
+        #配置service-edumsm服务
+        - id: service-edumsm
+          uri: lb://service-edumsm
+          predicates:
+            - Path=/edumsm/** # 路径匹配
+
+        #配置service-ucenter服务
+        - id: service-ucenter
+          uri: lb://service-ucenter
+          predicates:
+            - Path=/eduucenter/** # 路径匹配
+
+        #配置service-eduorder服务
+        - id: service-eduorder
+          uri: lb://service-eduorder
+          predicates:
+            - Path=/eduorder/** # 路径匹配
+
+        #配置service-staservice服务
+        - id: service-staservice
+          uri: lb://service-staservice
+          predicates:
+            - Path=/staservice/** # 路径匹配
+
+
+
