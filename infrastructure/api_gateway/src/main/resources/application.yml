@@ -40,20 +40,20 @@ spring:
             - Path=/eduoss/** # 路径匹配
 
         #配置service-eduvod服务
-        - id: service-eduvod
-          uri: lb://service-eduvod
+        - id: service-vod
+          uri: lb://service-vod
           predicates:
             - Path=/eduvod/** # 路径匹配
 
         #配置service-educms服务
-        - id: service-educms
-          uri: lb://service-educms
+        - id: service-cms
+          uri: lb://service-cms
           predicates:
             - Path=/educms/** # 路径匹配
 
         #配置service-edumsm服务
-        - id: service-edumsm
-          uri: lb://service-edumsm
+        - id: service-msm
+          uri: lb://service-msm
           predicates:
             - Path=/edumsm/** # 路径匹配
 
@@ -64,14 +64,14 @@ spring:
             - Path=/eduucenter/** # 路径匹配
 
         #配置service-eduorder服务
-        - id: service-eduorder
-          uri: lb://service-eduorder
+        - id: service-order
+          uri: lb://service-order
           predicates:
             - Path=/eduorder/** # 路径匹配
 
         #配置service-staservice服务
-        - id: service-staservice
-          uri: lb://service-staservice
+        - id: service-statistics
+          uri: lb://service-statistics
           predicates:
             - Path=/staservice/** # 路径匹配
 
